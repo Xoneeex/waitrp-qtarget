@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- <script defer src="./alpine.min.js"></script> -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body x-data="main" x-show="display" x-init="listen()">
+    <div class="target-wrapper">
+      <i :class="eyeActive ? 'target-eye-active' : 'target-eye-default'" class="target-eye target-size" icon-name="eye"
+        stroke-width="2"></i>
+      <div class="target-label-wrapper">
+        <div class="target-label">
+          <template x-for="value, key in target" :key="key">
+            <div @click="executeTarget(key)" class='target-item' id=''><i :class="value.icon"
+                class='fa-fw fa-pull-left target-icon'></i><span x-text="value.label"></span></div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="./lucide.min.js"></script> -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="./js/app.js"></script>
+</html>
